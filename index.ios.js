@@ -19,6 +19,10 @@ var IThui = React.createClass({
       msg: 'World'
     }
   },
+    
+  setMsg: function(msg) {
+    this.setState({msg})
+  },
   
   render: function() {
     return (
@@ -33,7 +37,7 @@ var IThui = React.createClass({
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
-        <TouchableOpacity onPress={()=>{this.setState({msg: 'ITHui'})}}>
+        <TouchableOpacity onPress={()=>this.setMsg('ITHui')}>
             <Text>点我啊</Text>
         </TouchableOpacity>
       </View>
