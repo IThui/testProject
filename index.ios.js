@@ -4,27 +4,26 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
+import React,{
+  Component,
   AppRegistry,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-} = React;
+} from 'react-native'
 
-var IThui = React.createClass({
-  getInitialState: function() {
-    return {
-      msg: 'World'
-    }
-  },
-    
-  setMsg: function(msg) {
-    this.setState({msg})
-  },
+class IThui extends Component {
   
-  render: function() {
+  state = {
+    msg : 'World'
+  }
+    
+  setMsg(msg) {
+    this.setState({msg})
+  }
+  
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -37,13 +36,13 @@ var IThui = React.createClass({
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
-        <TouchableOpacity onPress={()=>this.setMsg('ITHui')}>
+        <TouchableOpacity onPress={this.setMsg.bind(this, 'ITHui')}>
             <Text>点我啊</Text>
         </TouchableOpacity>
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
